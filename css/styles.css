@@ -1,0 +1,23 @@
+.card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.card.selecionado {
+    background-color: #d0f0d0;
+    border-color: green;
+}
+
+.campo-invalido {
+    border: 2px solid red;
+    background-color: #ffe6e6;
+}
+
+.erro {
+    color: red;
+    font-size: 0.85em;
+    display: block;
+    margin-bottom: 8px;
+}
