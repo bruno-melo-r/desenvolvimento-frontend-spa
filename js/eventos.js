@@ -3,6 +3,9 @@ import { validarFormulario } from './validacao.js';
 import { salvarMensagem, alternarSelecionado, obterMensagensSalvas } from './storage.js';
 
 export function inicializarEventos() {
+    const menuToggle = document.getElementById('menu-toggle');
+    const menuNav = document.getElementById('menu-nav');
+
     document.addEventListener('click', function (evento) {
         const link = evento.target.closest('nav a');
         if (link) {
@@ -11,8 +14,10 @@ export function inicializarEventos() {
         }
     });
 
-    document.getElementById('menu-toggle').addEventListener('click', function () {
-        document.getElementById('menu-nav').classList.toggle('aberto');
+    menuToggle.addEventListener('click', function () {
+        menuNav.classList.toggle('aberto');
+        const expandido = menuToggle.getAttribute('aria-expanded') === 'true';
+        menuToggle.setAttribute('aria-expanded', !expandido);
     });
 
     app.addEventListener('submit', function (evento) {
@@ -34,6 +39,8 @@ export function inicializarEventos() {
         if (card) {
             card.classList.toggle('selecionado');
             alternarSelecionado(card.querySelector('h3').textContent);
+            const pressionado = card.getAttribute('aria-pressed') === 'true';
+            card.setAttribute('aria-pressed', !pressionado);
         }
     });
 
@@ -42,7 +49,8 @@ export function inicializarEventos() {
             const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (regexEmail.test(evento.target.value)) {
                 evento.target.classList.remove('campo-invalido');
-                document.getElementById('erro-email').textContent = '';
+                evento.target.setAttribute('aria-invalid', 'false');
+               document.getElementById('erro-email').textContent = '';
             }
         }
     });
