@@ -1,3 +1,8 @@
+body {
+    background-color: #ffffff;
+    color: #000000;
+}
+
 .card {
     border: 1px solid #ccc;
     padding: 10px;
@@ -11,12 +16,12 @@
 }
 
 .campo-invalido {
-    border: 2px solid red;
+    border: 2px solid #cc0000;
     background-color: #ffe6e6;
 }
 
 .erro {
-    color: red;
+    color: #cc0000;
     font-size: 0.85em;
     display: block;
     margin-bottom: 8px;
@@ -43,4 +48,37 @@ button:focus,
 input:focus {
     outline: 3px solid #005fcc;
     outline-offset: 2px;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212;
+        color: #e0e0e0;
+    }
+
+    .card {
+        border-color: #555;
+        background-color: #1e1e1e;
+    }
+
+    .card.selecionado {
+        background-color: #143d14;
+        border-color: #4caf50;
+    }
+
+    .campo-invalido {
+        border-color: #ff6b6b;
+        background-color: #3a1414;
+    }
+
+    .erro {
+        color: #ff6b6b;
+    }
+
+    a:focus,
+    button:focus,
+    .card:focus,
+    input:focus {
+        outline-color: #66b2ff;
+    }
 }
