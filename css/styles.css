@@ -21,3 +21,26 @@
     display: block;
     margin-bottom: 8px;
 }
+
+#menu-nav {
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px 0;
+}
+
+#menu-nav.aberto {
+    display: flex;
+}
+
+#menu-toggle {
+    cursor: pointer;
+}
+
+a:focus,
+button:focus,
+.card:focus,
+input:focus {
+    outline: 3px solid #005fcc;
+    outline-offset: 2px;
+}
